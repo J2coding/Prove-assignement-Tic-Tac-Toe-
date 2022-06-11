@@ -1,4 +1,5 @@
 import random
+
 """
 overview
 Tic-Tac-Toe is a game in which two players seek in alternate turns to complete a row, a column, or a diagonal with either three x's or three o's drawn in the spaces of a grid of nine squares.
@@ -29,16 +30,37 @@ The program must have a function called main.
     #flip player
 
     #Game board
-board=["1","2","3","4",
+board=["1","2","3",
+        "4","5","6",
+        "7","8","9"] 
 
-        "5","6","7","8","9"] 
-def main():
+def display_board():
     print(board[0] + "|" + board[1] + "|" + board[2] + "|")
     print('-+-+-')
     print(board[3] + "|" + board[4] + "|" + board[5] + "|")
     print('-+-+-')
     print(board[6] + "|" + board[7] + "|" + board[8] + "|")
+
+def play_game():
+
+    #display initial board
+    display_board() 
+
+
+    handle_turn()
+    #get position from the player as str 
+def handle_turn():
+    position = input("Choose a position from 1-9: ")
+    position = int(position)-1
+
+    #get x from the user to fill the board
+    board[position] = "X"
+    display_board()
     
 
-main()
+
+
+
+
+play_game()
 
