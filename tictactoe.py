@@ -33,6 +33,13 @@ The program must have a function called main.
 board=["1","2","3",
         "4","5","6",
         "7","8","9"] 
+        
+        #if game still going
+game_still_going = True
+    #who won or tie the game 
+winner = None
+#next player
+current_player = "X"
 
 def display_board():
     print(board[0] + "|" + board[1] + "|" + board[2] + "|")
@@ -44,12 +51,27 @@ def display_board():
 def play_game():
 
     #display initial board
-    display_board() 
+    display_board()
+    while game_still_going:
+
+        handle_turn(current_player)
+
+        check_if_game_over()
+
+        flip_player()
+    #game over
+if winner == "X" or winner =="O":
+    print(winner)+ "You "
+elif winner == None:
+    print('Tie')
+
+    
+        
 
 
-    handle_turn()
+    #handle_turn(player)
     #get position from the player as str 
-def handle_turn():
+def handle_turn(player):
     position = input("Choose a position from 1-9: ")
     position = int(position)-1
 
@@ -58,6 +80,36 @@ def handle_turn():
     display_board()
     
 
+
+
+def check_if_game_over():
+    check_if_win()
+    check_if_tie()
+
+#return X or O
+def check_if_win():
+    #check rows
+    rows_winner = check_rows()
+    #check columns
+    columns_winner = check_column()
+    #check diagonal
+    diagonal_win = check_diagonals()
+    return
+
+def check_rows():
+    return
+
+def check_column():
+    return
+def check_diagonals():
+    return
+
+def check_if_tie():
+    return
+
+    #flip player fro x to o
+def flip_player():
+    return
 
 
 
